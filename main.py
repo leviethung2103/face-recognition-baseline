@@ -52,6 +52,7 @@ if faces is not None:
                 if l == 0 or l == 3:
                     color = (0, 255, 0)
                 cv2.circle(resized_img, (landmark5[l][0], landmark5[l][1]), 1, color, 2)
+
 if not os.path.exists("logs/outputs"):
     os.makedirs("logs/outputs")
 
