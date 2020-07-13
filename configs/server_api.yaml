@@ -1,17 +1,20 @@
 version: 1.0
 
+# Use GPU -> gpuid: 0 
+# Use CPU -> gpuid: -1
+
 face_detection:
   name: 'retina'
   network: 'net3'
   threshold: 0.8
-  gpuid: 0
+  gpuid: -1
   path: 'models/FaceDetection/R50'
   flip: False
   epoch: 0
 
 face_embedding:
   threshold: 0.2
-  gpuid: 0
+  gpuid: -1
   img_size: [112,112]
   weight: 'models/FaceEmbedding/model-r100-ii/model,0'
   det: 1          # mtcnn option, 1 means using R+O, 0 means detect from begining
