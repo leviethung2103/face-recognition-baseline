@@ -36,12 +36,6 @@ pip install --upgrade greenlab-library
 
 **Steps:**
 
-1. Change the image path in `main.py` file.   
-2. Change the configuration parameters in `server_api.yaml`file. Change the `gpu_id` if necessary
-3. Run `main.py` file
-
-```
-python main.py 
-```
-
-4. Check the results at `logs/outputs/test.png` 
+1. Change the image path in and parameters in `configs/server_api.yaml` file. 
+2. Run `main.py` file
+3. Check the results at `logs/outputs/test.png` 
