@@ -3,17 +3,22 @@ import cv2
 import numpy as np
 from mxnet import ndarray as nd
 import os
+from face_recognition.utils.tools import get_cfg
 
+# show available models
 models.show_avai_models()
+
 config_path = 'configs/server_api.yaml'
 
 retina_model = models.build_model('retina-r50',config_path)
 arcface = models.build_model('arc-face',config_path)
 
-print (retina_model)
-print (arcface)
+print (f"[INFO] Model Retina:",retina_model)
+print (f"[INFO] Model Arc:",arcface)
 
-img =  cv2.imread('imgs/PhanVanTinh.jpg')
+config = get_cfg(config_path)
+
+img =  cv2.imread(config['input']['image'])
 
 # pre-processing image
 H, W = img.shape[:2]
@@ -38,15 +43,14 @@ faces, landmarks = retina_model.detect_fast(
                         do_flip= False)
 
 if faces is not None:
-    print('find', faces.shape[0], 'faces')
+    print('[INFO] Found ', faces.shape[0], 'faces')
     for i in range(faces.shape[0]):
-        print('score', faces[i][4])
+        print('[INFO] Score', faces[i][4])
         box = faces[i].astype(np.int)
         color = (0,0,255)
         cv2.rectangle(resized_img, (box[0], box[1]), (box[2], box[3]), color, 2)
         if landmarks is not None:
             landmark5 = landmarks[i].astype(np.int)
-            print(landmark5.shape)
             for l in range(landmark5.shape[0]):
                 color = (0, 0, 255)
                 if l == 0 or l == 3:
@@ -56,4 +60,5 @@ if faces is not None:
 if not os.path.exists("logs/outputs"):
     os.makedirs("logs/outputs")
 
+print (f"[INFO] Check the result at: logs/outputs")
 cv2.imwrite("logs/outputs/test.png",resized_img)

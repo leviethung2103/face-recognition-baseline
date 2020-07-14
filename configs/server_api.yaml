@@ -3,6 +3,11 @@ version: 1.0
 # Use GPU -> gpuid: 0 
 # Use CPU -> gpuid: -1
 
+input:
+  image: 'imgs/PhanVanTinh.jpg'
+  video: ''
+  camera: ''
+
 face_detection:
   name: 'retina'
   network: 'net3'
