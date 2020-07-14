@@ -27,7 +27,7 @@ pip install -r requirements-cpu.txt
 pip install -r requirements-gpu.txt
 
 # install face recognition library
-pip install --upgrade green-face-recognition
+pip install --upgrade greenlab-library
 ```
 
 
