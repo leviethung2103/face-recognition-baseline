@@ -38,11 +38,10 @@ pip install --upgrade green-face-recognition
 
 1. Change the image path in `main.py` file.   
 2. Change the configuration parameters in `server_api.yaml`file. Change the `gpu_id` if necessary
-
-At the first time, the system will try to download the pre-trained models.
+3. Run `main.py` file
 
 ```
 python main.py 
 ```
 
-Check the results at `logs/outputs/test.png` 
+4. Check the results at `logs/outputs/test.png` 
