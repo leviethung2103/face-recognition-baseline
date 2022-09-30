@@ -10,7 +10,7 @@ graphviz==0.8.4
 idna==2.10
 imageio==2.8.0
 imutils==0.5.3
-joblib==0.15.1
+joblib==1.2.0
 kiwisolver==1.2.0
 matplotlib==3.2.2
 mxnet-cu100==1.5.1.post0
